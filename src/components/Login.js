@@ -1,37 +1,51 @@
 import { Alert, AlertTitle, Box, Button, Container, Radio, TextField, Typography } from "@mui/material";
 import style from "./style.module.css";
-import { useRef, useState } from "react";
+import { createContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Login(){
+    const userData = createContext();
     let txtUserName=useRef();
     let txtPassword=useRef();
     let [msg,setMsg]=useState("");
     let [flag,setFlag]=useState();
     let navigate=useNavigate();
+    var navigateTo="";
     let [selectedRole,setSelectedRole]=useState('Student');
     let [loggedInUser,setLoggedInUser]=useState([]);
+    //let userArr = useSelector((state)=>state.user.user);
+    let userArr = useSelector((state)=>({
+        ...state.rootReducer.user
+    }));
+    console.log(userArr)
     const handleRoleChange = (event)=>{
         setSelectedRole(event.target.value);
     };
     
     function funLogin(){
-        console.log(txtPassword.current)
         var userName=txtUserName.current.value;
         var password=txtPassword.current.value;
         var data=window.localStorage.getItem("student");
         var studArr=JSON.parse(data);
         
         for(let i=0;i<studArr.length;i++){
-            console.log(studArr[i].userName==userName 
-                && studArr[i].password==password
-                && studArr[i].role==selectedRole);
+            // console.log(studArr[i].userName==userName 
+            //     && studArr[i].password==password
+            //     && studArr[i].role==selectedRole);
             if(studArr[i].userName===userName 
                 && studArr[i].password===password
-                && studArr[i].role==selectedRole){
+                && studArr[i].role===selectedRole){
                 setMsg("Login Successful")
                 setFlag(true);
                 setLoggedInUser(studArr[i]);
+                if(studArr[i].role==="Student"){
+                    userData.
+                    navigateTo = navigate("/studenthome",{state:studArr[i]});
+                }
+                else if(studArr[i].role==="Teacher"){
+                    navigateTo=navigate("/teacherhome",{state:studArr[i]})
+                }
                 break;
             }
             else{
@@ -82,7 +96,7 @@ function Login(){
                 </Box>
             </Box><br/><br/>
             {
-                flag && navigate("/studenthome",{state:loggedInUser})
+                flag && navigateTo
             }
             {
                 flag===false && <Alert variant="outlined" severity="error">

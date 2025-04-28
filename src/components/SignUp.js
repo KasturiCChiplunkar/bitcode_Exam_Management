@@ -2,7 +2,7 @@ import { Alert, AlertTitle, Box, Button, Container, Input, MenuItem, Radio, Sele
 import style from "./style.module.css";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser } from "../reducer/reducer";
+import { addUser, loggedUser } from "../reducer/reducer";
 
 function SignUp(){
     let txtFirstName=useRef();
@@ -54,10 +54,12 @@ function SignUp(){
             gender:selectedValue,
             role:selectedRole
         }
+        console.log(obj);
         studArr.push(obj)
         //console.log(studArr)
         userDispatch(addUser(obj));
-        window.localStorage.setItem("student",JSON.stringify(userArr));
+        userDispatch(loggedUser(obj));
+        window.localStorage.setItem("student",JSON.stringify(studArr));
         
         setStudFlag(true);
         txtFirstName.current.value="";

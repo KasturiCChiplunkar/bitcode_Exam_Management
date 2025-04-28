@@ -12,8 +12,8 @@ const initialState = {
         gender:"",
         role:""},
     ],
-    class:[ "",  
-    ]
+    class:[],
+    loggedUser:[],
 };
 
 const userSlice = createSlice({
@@ -21,11 +21,14 @@ const userSlice = createSlice({
     initialState,
     reducers:{
         addUser: (state,action)=>{
+            console.log(action.payload);
             state.user.push(action.payload);
+        },
+        loggedUser:(state,action)=>{
+            state.loggedUser.push(action.payload);
         }
     }
-
 });
 
-export const {addUser} = userSlice.actions;
+export const {addUser, loggedUser} = userSlice.actions;
 export default userSlice.reducer;

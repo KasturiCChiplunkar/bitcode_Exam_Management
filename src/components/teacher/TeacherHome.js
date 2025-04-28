@@ -1,22 +1,25 @@
-import { Route, Router, useLocation } from "react-router-dom";
-import Navigation from "./Navigation";
-import style from "./style.module.css";
+import { useSelector } from "react-redux";
+import Navigation from "../Navigation";
+import style from "../style.module.css";
 import { Box, Container } from "@mui/material";
+import { useLocation } from "react-router-dom";
 
-function StudentHome(){
+function TeacherHome(){
     let data=useLocation();
     let loggedInUser=data.state;
-    //console.log("loggedInUser",loggedInUser)
     var loggedInUserName = loggedInUser.fistName + " " + loggedInUser.lastName;
+    console.log(loggedInUserName)
+    let loggedUser = useSelector((state)=>({...state.rootReducer.user}))
+    console.log("loggedUser",loggedUser);
     var date=new Date().toDateString();
-    //console.log(date)
+    console.log(date)
     return <>
-        <Navigation data={loggedInUser.role}></Navigation>
+        <Navigation data={loggedInUser}></Navigation>
         <p className={style.userName}>Welcome,<br></br><b> {loggedInUserName.toUpperCase()}</b></p>
         <p className={style.userName}>{date}</p>
         <Container className={style.studentHomeContainer}>
             <Box className={style.studentHomeBox}>
-                <p>Previous Exam Performance</p>
+                <p>Total Students</p>
             </Box>
             <Box className={style.studentHomeBox}>
                 <p>Upcoming Exams</p>
@@ -27,4 +30,4 @@ function StudentHome(){
         </Container>
     </>
 }
-export default StudentHome;
+export default TeacherHome;
