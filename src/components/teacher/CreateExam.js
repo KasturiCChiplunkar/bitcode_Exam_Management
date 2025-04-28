@@ -52,7 +52,7 @@ function CreateExam(){
         for(let i=0;i<subArr.length;i++){
             console.log(subArr[i].className)
             if(subArr[i].className===selectedClass){
-                console.log(subArr[i].subjectName, i )
+                console.log(subArr[i].subjectName)
                 setClassSubject(subArr[i].subjectName)
             }
         }
