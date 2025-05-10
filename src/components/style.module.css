@@ -1,0 +1,146 @@
+.appBackground{
+    background-color: #f8f8f8;
+    height: 50dvh;
+}
+.appTitle{
+    margin-top:50px;
+}
+.loginBoxBorder{
+    width: 25%;
+    padding: 20px;
+    height: auto;
+    transform: translate(115%,10%);
+    border: 1px solid #808080;
+}
+.signUpBoxGrid{
+    display: inline-flex;
+    border: 1px solid #808080;
+}
+.signUpBoxBorder{
+    width: 50%;
+    height: auto;
+    transform: translate(50%,10%);
+    border: 1px solid #808080;
+}
+.boxPadding{
+    padding: 10px;
+    text-align: left;
+}
+.signUpLabel{
+    text-align: start;
+}
+.textField{
+    width: 180px;
+    height: 20px;
+    vertical-align: middle;
+    color: black;
+    text-align: justify;
+}
+.signUpSelect{
+    width: 180px;
+    height: 30px;
+    vertical-align: middle;
+    color: black;
+    text-align: justify;
+}
+.signUp{
+    background-color : #d8d6d6 !important;
+    color : black !important;
+    border: 1px solid #808080 !important;
+    filter: drop-shadow(0px 8px 8px white) !important;
+    margin: 15px;    
+}
+.homeBtn{
+    background-color : #d8d6d6 !important;
+    color : black !important;
+    border: 1px solid #808080 !important;
+    filter: drop-shadow(0px 8px 8px white) !important;
+    margin: 15px;    
+}
+.loginBtn{
+    background-color : #d8d6d6 !important;
+    color : black !important;
+    border: 1px solid #808080 !important;
+    filter: drop-shadow(0px 8px 8px transparent) !important;
+    top: 15px;
+}
+.wrap {
+    height: 100px;
+    width: 200px;
+    margin: 10px;
+    display: inline-flex;
+}
+.wrap span {
+   align-self: flex-end;
+}
+/*navigation css*/
+.navBox{
+    width: '50%';
+    background: '#d8d6d6';
+    display:'inline-flex'
+}
+/*student home css*/
+.studentHomeContainer{
+    display: inline-flex;
+    align-items: center;
+    transform: translate(13%,10%);
+}
+.userName{
+    text-align: left;
+    margin-left: 15px;
+}
+.studentHomeBox{
+    width: 250px;
+    height: 150px;
+    border: #808080 1px solid;
+    margin: 15px;
+    background-color: #e2e2e2;
+}
+/*teacher create exam css*/
+.sectionBox{
+    width: 500px !important;
+    height: 300px !important;
+    padding: 10px;
+    border: 1px solid #808080;
+    display: inline-flex; 
+    justify-content: center; 
+}
+.createExamBtn{
+    background-color : #d8d6d6 !important;
+    color : black !important;
+    border: 1px solid #808080 !important;
+    position: fixed;
+    left: 30px;
+    filter: drop-shadow(0px 8px 8px transparent) !important;   
+}
+.labelAlign{
+    text-align: left;
+    width: 100px;
+    height: auto;
+}
+.fieldAlign{
+    text-align: left;
+    width: 200px;
+    height: auto;
+}
+.radioAlign{
+    width: auto;
+}
+.generateExamBtn{
+    color : black !important;
+    top: 10px;
+    filter: drop-shadow(0px 8px 8px #808080) !important;   
+}
+.errorMsg{
+    font-size: 10px;
+    color: red;
+}
+/*subject css*/
+.subjectBtn{
+    background-color : #d8d6d6 !important;
+    color : black !important;
+    border: 1px solid #808080 !important;
+    top:30px;
+    left: 100px;
+    filter: drop-shadow(0px 8px 8px transparent) !important;   
+}
